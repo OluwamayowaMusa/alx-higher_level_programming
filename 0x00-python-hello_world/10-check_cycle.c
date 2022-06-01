@@ -32,7 +32,7 @@ int check_array(int num, int *ar)
  */
 int check_cycle(listint_t *list)
 {
-	int ar[10] = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, i = 0;
+	int ar[200] = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, i = 0;
 
 	while (list != NULL)
 	{
