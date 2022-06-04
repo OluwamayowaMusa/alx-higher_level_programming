@@ -1,27 +1,5 @@
 #include "lists.h"
 
-/**
- * check_array: Check array for number
- * @num: Number passed
- * @ar: Array to check
- *
- * Return: 1 - if num is present
- *         0 - otherwise
- */
-int check_array(int num, int *ar)
-{
-	int i;
-
-	for (i = 0; i < 10; i++)
-	{
-		if (num == ar[i])
-		{
-			return (1);
-		}
-	}
-	return (0);
-}
-
 
 /**
  * check_cycle - check if there is a loop in linked list(a cycle)
@@ -32,15 +10,17 @@ int check_array(int num, int *ar)
  */
 int check_cycle(listint_t *list)
 {
-	int ar[200] = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, i = 0;
+	listint_t *temp = NULL;
 
-	while (list != NULL)
+	temp = list->next;
+
+	while (temp != NULL)
 	{
-		if (check_array(list->n, ar) == 1)
+		if (temp == list)
+		{
 			return (1);
-		ar[i] = list->n;
-		list = list->next;
-		i++;
+		}
+		temp = temp->next;
 	}
 	return (0);
 }

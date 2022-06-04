@@ -8,7 +8,7 @@
 int main(void)
 {
 	listint_t *head, *current, *temp;
-	size_t numNode, i;
+	size_t i;
 
 	head = NULL;
 	add_nodeint(&head, 0);
@@ -19,8 +19,7 @@ int main(void)
 	add_nodeint(&head, 98);
 	add_nodeint(&head, 402);
 	add_nodeint(&head, 1024);
-	numNode = print_listint(head);
-	printf("Number of nodes: %lu\n", numNode);
+	print_listint(head);
 	if (check_cycle(head) == 0)
 		printf("Linked list has no cycle\n");
 	else if (check_cycle(head) == 1)
