@@ -1,30 +1,50 @@
 #include "lists.h"
 
-
 /**
- * check_cycle - check if there is a loop in linked list(a cycle)
- * @list: Pointer to linked list
+ * main - test function
  *
- * Return: 0 - If there is no cycle
- *         1 - if there is cycle
+ * Return: 0
  */
-int check_cycle(listint_t *list)
+int main(void)
 {
-	listint_t *temp = NULL;
-	
-	if (list == NULL || list->next == NULL || (list->next)->next == NULL)
-		return (0);
+	listint_t *head, *current, *temp, *reset;
+	size_t i;
 
-	temp = (list->next)->next;
+	head = NULL;
+	add_nodeint(&head, 0);
+	add_nodeint(&head, 1);
+	add_nodeint(&head, 2);
+	add_nodeint(&head, 3);
+	add_nodeint(&head, 4);
+	add_nodeint(&head, 98);
+	add_nodeint(&head, 402);
+	add_nodeint(&head, 972);
+	add_nodeint(&head, 1024);
+	add_nodeint(&head, 2048);
+	print_listint(head);
+	if (check_cycle(head) == 0)
+		printf("Linked list has no cycle\n");
+	else if (check_cycle(head) == 1)
+		printf("Linked list has a cycle\n");
 
-	while (list != NULL)
+	current = head;
+	for (i = 0; i < 6; i++)
 	{
-		if (temp == list)
-		{
-			return (1);
-		}
-		temp = (temp->next)->next;
-		list = list->next;
+		if (i == 4)
+			temp = current;
+		current = current->next;
 	}
+	reset = current->next;
+	current->next = temp;
+	if (check_cycle(head) == 0)
+		printf("Linked list has no cycle\n");
+	else if (check_cycle(head) == 1)
+		printf("Linked list has a cycle\n");
+	current = head;
+	for (i = 0; i < 4; i++)
+		current = current->next;
+	current->next = reset;
+
+	free_listint(head);
 	return (0);
 }
