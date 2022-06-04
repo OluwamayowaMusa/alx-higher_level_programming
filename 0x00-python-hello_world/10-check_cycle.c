@@ -14,15 +14,17 @@ int check_cycle(listint_t *list)
 	
 	if (list == NULL)
 		return (0);
-	temp = list->next;
 
-	while (temp != NULL)
+	temp = (list->next)->next;
+
+	while (list != NULL)
 	{
 		if (temp == list)
 		{
 			return (1);
 		}
-		temp = temp->next;
+		temp = (temp->next)->next;
+		list = list->next;
 	}
 	return (0);
 }
