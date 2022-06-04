@@ -21,24 +21,32 @@ size_t print_listint(const listint_t *h)
 
 
 /**
- * add_nodeint - Add node to linked list
+ * add_nodeint_end - Add node to linked list
  * @head: Pointer to Head Node
  * @n: Data
  *
  * Return: pointer to new node
  */
-listint_t *add_nodeint(listint_t **head, const int n)
+listint_t *add_nodeint_end(listint_t **head, const int n)
 {
-	listint_t *newNode = NULL;
+	listint_t *newNode = NULL, *temp;
 
 	if (head == NULL)
-		return (NULL);
+		return  (NULL);
 	newNode = malloc(sizeof(listint_t));
 	if (newNode == NULL)
 		return (NULL);
 	newNode->n = n;
-	newNode->next = *head;
-	*head = newNode;
+	newNode->next = NULL;
+	if (*head == NULL)
+	{
+		*head = newNode;
+		return (newNode);
+	}
+	temp = *head;
+	while (temp->next != NULL)
+		temp = temp->next;
+	temp->next = newNode;
 	return (newNode);
 }
 

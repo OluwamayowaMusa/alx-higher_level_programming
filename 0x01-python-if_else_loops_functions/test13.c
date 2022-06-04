@@ -10,14 +10,14 @@ int main(void)
 	listint_t *head = NULL;
 	size_t numNode;
 
-	add_nodeint(&head, 0);
-	add_nodeint(&head, 1);
-	add_nodeint(&head, 2);
-	add_nodeint(&head, 3);
-	add_nodeint(&head, 4);
-	add_nodeint(&head, 98);
-	add_nodeint(&head, 402);
-	add_nodeint(&head, 1024);
+	add_nodeint_end(&head, 0);
+	add_nodeint_end(&head, 1);
+	add_nodeint_end(&head, 2);
+	add_nodeint_end(&head, 3);
+	add_nodeint_end(&head, 4);
+	add_nodeint_end(&head, 98);
+	add_nodeint_end(&head, 402);
+	add_nodeint_end(&head, 1024);
 	numNode = print_listint(head);
 	printf("Number of Nodes: %lu\n", numNode);
 	insert_node(&head, 2048);
