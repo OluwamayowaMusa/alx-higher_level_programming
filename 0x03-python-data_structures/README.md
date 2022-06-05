@@ -13,7 +13,7 @@
 * **Waht is the `del` statement and how to use it**
 
 ## Additional Info
-* **There are two types of copy**
+* **There are two types of copy:**
 ```
    Shallow copy: uses references
    Deep copy: uses copies
