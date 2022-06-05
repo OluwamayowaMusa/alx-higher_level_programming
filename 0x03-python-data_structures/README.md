@@ -14,5 +14,7 @@
 
 ## Additional Info
 * **There are two types of copy**
-   *Shallow copy: uses references
-   *Deep copy: uses copies
+```
+   Shallow copy: uses references
+   Deep copy: uses copies
+```
