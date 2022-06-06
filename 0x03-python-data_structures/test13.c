@@ -14,7 +14,7 @@ int main(void)
 	add_nodeint_end(&head, 1);
 	add_nodeint_end(&head, 1);
 	add_nodeint_end(&head, 1);
-	add_nodeint_end(&head, 1);
+	add_nodeint_end(&head, 2);
 	print_listint(head);
 
 	if (is_palindrome(&head) == 1)
