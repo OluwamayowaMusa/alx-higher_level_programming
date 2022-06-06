@@ -77,6 +77,8 @@ int is_palindrome(listint_t **head)
 	if (*head == NULL)
 		return (1);
 	temp = *head;
+	if ((*head)->next == NULL)
+		return (1);
 	while (temp != NULL)
 	{
 		if (check_num(temp->n, storeNode) == 0)
