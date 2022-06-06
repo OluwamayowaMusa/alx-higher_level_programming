@@ -1,54 +1,15 @@
 #include "lists.h"
 
 /**
- * free_list - Free linked list
- * @head: Pointer to linked list
+ * add_nodeint - add node to linked list
+ * @head: pointer to pointer to linked list
+ * @n: Data
  *
+ * Return: Address of new Node
  */
-void free_list(listint_t *head)
+listint_t *add_nodeint(listint_t **head, const int n)
 {
-	listint_t *current = NULL;
-
-	while (head != NULL)
-	{
-		current = head->next;
-		free(head);
-		head = current;
-	}
-}
-
-/**
- * check_num - check for numner in linked list
- * @num: Number
- * @head: pointer to linked list
- *
- * Return: 1 - if present
- *         0 - otherwise
- */
-int check_num(int num, listint_t *head)
-{
-	if (head == NULL)
-		return (0);
-	while (head != NULL)
-	{
-		if (head->n == num)
-			return (1);
-		head = head->next;
-	}
-	return (0);
-}
-
-
-/**
- * add_nodeint - Add node to linked list
- * @head: Pointer to pointer to linked list
- * @n: data
- *
- * Return: Address of new node
- */
-listint_t *add_nodeint(listint_t **head,  const int n)
-{
-	listint_t *newNode = NULL;
+	listint_t  *newNode = NULL;
 
 	newNode = malloc(sizeof(listint_t));
 	if (newNode == NULL)
@@ -69,8 +30,8 @@ listint_t *add_nodeint(listint_t **head,  const int n)
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *storeNode = NULL, *temp, *temp1;
-	int ctrl = 1;
+	listint_t *storeNode = NULL, *temp, *temp1, *temp2, *temp3;
+	int ctrl = 1, i = 0, j = 0;
 
 	if (head == NULL)
 		return (0);
@@ -79,27 +40,32 @@ int is_palindrome(listint_t **head)
 	temp = *head;
 	if ((*head)->next == NULL)
 		return (1);
-	while (temp != NULL)
+	temp = temp1 = temp3 = *head;
+	while (temp3 != NULL)
+		temp3 = temp3->next, i++;
+	if (i % 2 != 0)
+		return (0);
+	while (temp != NULL && temp->next != NULL)
 	{
-		if (check_num(temp->n, storeNode) == 0)
-			add_nodeint(&storeNode, temp->n);
-		else if (check_num(temp->n, storeNode) == 1)
+		if (temp->n == (temp->next)->n && j == (i / 2) - 1)
+		{
+			temp = temp->next;
 			break;
-		temp = temp->next;
+		}
+		temp = temp->next, j++;
 	}
-	temp1 = storeNode;
-	while (storeNode != NULL && temp != NULL)
+	while (temp != NULL)
+		add_nodeint(&storeNode, temp->n), temp = temp->next;
+	temp2 = storeNode;
+	while (storeNode != NULL)
 	{
-		if (storeNode->n != temp->n)
+		if (temp1->n != storeNode->n)
 		{
 			ctrl = 0;
 			break;
 		}
-		storeNode = storeNode->next;
-		temp = temp->next;
+		storeNode = storeNode->next, temp1 = temp1->next;
 	}
-	if (temp != NULL || storeNode != NULL)
-		ctrl = 0;
-	free_list(temp1);
+	free_listint(temp2);
 	return (ctrl);
 }
