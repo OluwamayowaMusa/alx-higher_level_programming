@@ -1,5 +1,7 @@
 #include "lists.h"
 
+
+
 /**
  * add_nodeint - add node to linked list
  * @head: pointer to pointer to linked list
@@ -42,8 +44,6 @@ int is_palindrome(listint_t **head)
 	temp = temp1 = temp3 = *head;
 	while (temp3 != NULL)
 		temp3 = temp3->next, i++;
-	if (i % 2 != 0)
-		return (0);
 	while (temp != NULL && temp->next != NULL)
 	{
 		if (temp->n == (temp->next)->n && j == (i / 2) - 1)
