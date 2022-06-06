@@ -37,12 +37,13 @@ int is_palindrome(listint_t **head)
 		return (0);
 	if (*head == NULL)
 		return (1);
-	temp = *head;
 	if ((*head)->next == NULL)
 		return (1);
 	temp = temp1 = temp3 = *head;
 	while (temp3 != NULL)
 		temp3 = temp3->next, i++;
+	if (i % 2 != 0)
+		return (0);
 	while (temp != NULL && temp->next != NULL)
 	{
 		if (temp->n == (temp->next)->n && j == (i / 2) - 1)
