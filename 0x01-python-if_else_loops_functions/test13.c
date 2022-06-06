@@ -22,7 +22,7 @@ int main(void)
 	printf("Number of Nodes: %lu\n", numNode);
 	insert_node(&head, 2048);
 	insert_node(&head, 495);
-	insert_node(&head, 100);
+	insert_node(&head, 98);
 	insert_node(&head, 5);
 	insert_node(&head, -2);
 	print_listint(head);
