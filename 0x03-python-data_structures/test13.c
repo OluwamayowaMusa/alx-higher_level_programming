@@ -10,7 +10,6 @@ int main(void)
 {
 	listint_t *head;
 	clock_t start, end, diff;
-	int i;
 
 	head = NULL;
 	add_nodeint_end(&head, 1);
@@ -24,13 +23,10 @@ int main(void)
 	print_listint(head);
 
 	start = clock();
-	for (i = 0; i < 10; i++)
-	{
-		if (is_palindrome(&head) == 1)
-			printf("Linked list is a palindrome\n");
-		else
-			printf("Linked list is not a palindrome\n");
-	}
+	if (is_palindrome(&head) == 1)
+		printf("Linked list is a palindrome\n");
+	else
+		printf("Linked list is not a palindrome\n");
 	end = clock();
 	diff = (double)(end - start) / 10;
 	printf("Time taken: %f\n", (double)diff);
