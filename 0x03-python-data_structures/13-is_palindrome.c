@@ -51,7 +51,7 @@ int is_palindrome(listint_t **head)
 		temp = temp->next;
 	temp->next = NULL;
 	temp = *head;
-	while (revNode)
+	while (revNode && temp)
 	{
 		if (revNode->n != temp->n)
 		{
