@@ -65,6 +65,8 @@ int is_palindrome(listint_t **head)
 		temp3 = temp3->next, i++;
 	if (num_list(temp4) == 1)
 		return (1);
+	if (i % 2 != 0)
+		return (0);
 	while (temp != NULL && temp->next != NULL)
 	{
 		if (temp->n == (temp->next)->n && j == (i / 2) - 1)
