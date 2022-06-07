@@ -10,7 +10,7 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *temp = NULL, *temp2 = NULL;
-	int numNode, first = 0, last, i = 0, j;
+	int numNode, first = 0, last, j;
 
 	if (head == NULL)
 		return (0);
@@ -24,12 +24,11 @@ int is_palindrome(listint_t **head)
 	while (first < numNode / 2 && last > numNode / 2)
 	{
 		temp2 = *head;
-		for (; i < first; temp = temp->next, i++)
-			;
 		for (j = 0; j < last - 1; temp2 = temp2->next, j++)
 			;
 		if (temp->n != temp2->n)
 			return (0);
+		temp = temp->next;
 		first++, last--;
 	}
 	return (1);
