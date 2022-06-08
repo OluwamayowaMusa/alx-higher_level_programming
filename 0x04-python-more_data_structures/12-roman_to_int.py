@@ -3,6 +3,8 @@
 
 def roman_to_int(roman_string):
     """Converts roman string to number"""
+    if (type(roman_string) != str):
+        return (0)
     if (roman_string is None or (not roman_string.isalpha())):
         return (0)
     romanDict = {'I': 1, "IV": 4, 'V': 5, "IX": 9, 'X': 10,

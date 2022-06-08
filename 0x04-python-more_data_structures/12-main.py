@@ -21,5 +21,8 @@ print("{} = {}".format(roman_number, roman_to_int(roman_number)))
 roman_number = "MMMCMXCIX"
 print("{} = {}".format(roman_number, roman_to_int(roman_number)))
 
-roman_number = "LL34"
+roman_number = "MMMDXLVI"
+print("{} = {}".format(roman_number, roman_to_int(roman_number)))
+
+roman_number = 90
 print("{} = {}".format(roman_number, roman_to_int(roman_number)))
