@@ -18,4 +18,6 @@ def best_score(a_dictionary):
             if (i > maxVal):
                 maxVal = i
                 res = index
+    if (valList.count(maxVal) != 1):
+        return (None)
     return (keyList[res])
