@@ -59,7 +59,7 @@ void print_python_bytes(PyObject *p)
 	}
 	len = PyBytes_Size(p);
 	printf("  size: %lu\n", len);
-	str = PyBytes_AS_STRING(p);
+	str = PyBytes_AsString(p);
 	printf("  trying string: %s\n", str);
 	temp = len;
 	if (len > 10)
