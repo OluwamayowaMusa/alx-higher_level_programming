@@ -1,6 +1,5 @@
-#define PY_SIZE_T_CLEAN
+#define PY_SSIZE_T_CLEAN
 #include <Python.h>
-#include <python3.4/floatobject.h>
 
 /* Function Declaration */
 void print_python_list(PyObject *p);
