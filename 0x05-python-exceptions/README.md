@@ -9,4 +9,4 @@
 * **When do need to implement a clean-up action after an exception**
 
 ## Additional Info
-* **All exceptions inherit from BaseException and so it can be used to serve as a wildcard for all exceptions**
+* **All exceptions inherit from BaseException and so it can be used to serve as a wildcard**
