@@ -66,7 +66,7 @@ void print_python_bytes(PyObject *p)
 	str = ((PyBytesObject *)p)->ob_sval;
 	printf("  trying string: %s\n", str);
 	temp = len;
-	if (len > 10)
+	if (len >= 10)
 		temp = 9;
 	printf("  first %lu bytes: ", temp + 1);
 	for (index = 0; index < temp + 1; index++)
