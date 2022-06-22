@@ -4,6 +4,7 @@
 
 """
 
+
 class MagicClass:
     """ Describes a circle.
 
