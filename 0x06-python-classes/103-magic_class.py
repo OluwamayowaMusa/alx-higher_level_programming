@@ -12,6 +12,7 @@ class MagicClass:
     """
 
     def __init__(self, radius=0):
+        self.__radius = 0
         """ Initializes the object with radius.
 
         Args:
