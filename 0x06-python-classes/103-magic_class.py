@@ -3,8 +3,8 @@
 """ A module which defines the MagicClass.
 
 """
-
 import math
+
 
 class MagicClass:
     """ Describes a circle.
