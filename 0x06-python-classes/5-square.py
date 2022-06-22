@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-""" A module which defines a Square class.
+""" A module which defines Square class.
 
 """
 
@@ -14,14 +14,15 @@ class Square:
         """ Initializes the object with size.
 
         Args:
-            size (int): Size of the square
+            size (int): Size of square
+
         """
         self.size = size
 
     @property
     def size(self):
-        """ Gets the size of the sqaure object. Also check the type
-        of argument and return the right error
+        """ Gets the attribute size. Also checks for
+        TypeError and ValueError
         """
         return self.__size
 
@@ -36,3 +37,13 @@ class Square:
     def area(self):
         """ Calculates the area of the square"""
         return self.__size ** 2
+
+    def my_print(self):
+        """ Print a representation of the square """
+        if self.__size != 0:
+            i = 0
+            while i < self.__size:
+                print('#' * self.__size)
+                i += 1
+        else:
+            print()
