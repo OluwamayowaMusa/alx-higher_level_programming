@@ -35,8 +35,6 @@ class Square:
                 else:
                     _s += (' ' * self.__position[0] + '#' * self.__size)
                 i += 1
-        else:
-            _s += '\n'
         return _s
 
     @property
