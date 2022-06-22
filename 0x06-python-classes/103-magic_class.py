@@ -3,8 +3,6 @@
 """ A module which defines the MagicClass.
 
 """
-import math
-
 
 class MagicClass:
     """ Describes a circle.
@@ -12,12 +10,12 @@ class MagicClass:
     """
 
     def __init__(self, radius=0):
-        self.__radius = 0
         """ Initializes the object with radius.
 
         Args:
             radius (int, float): Radius of circle
         """
+        self.__radius = radius
         if type(radius) is not int or type(radius) is not float:
             raise TypeError("radius must be a number")
         self.__radius = radius
