@@ -11,7 +11,7 @@ class Node:
     """
 
     def __init__(self, data, next_node=None):
-        """ Initilaizes the object with data and next_node.
+        """ Initializes the object with data and next_node.
 
         Args:
             data (int): Data in Node
@@ -42,7 +42,7 @@ class Node:
 
     @next_node.setter
     def next_node(self, value):
-        if not isinstance(value, None, Node):
+        if not isinstance(value, (type(None), Node)):
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
 
@@ -53,4 +53,34 @@ class SinglyLinkedList:
     """
 
     def __init__(self):
+        """ Initializes the Head node of a linked list.
+
         """
+        self.__head = None  # Head Node of linked list
+
+    def sorted_insert(self, value):
+        """ Inserts a new node in the linked list """
+        new_node = Node(value)
+        if self.__head is None:
+            self.__head = new_node
+        else:
+            temp = self.__head
+            if temp.data > value:
+                new_node.next_node = temp
+                self.__head = new_node
+                return
+            # Checks for condition
+            while temp.next_node is not None and temp.next_node.data < value:
+                temp = temp.next_node
+            temp1 = temp.next_node
+            temp.next_node = new_node
+            new_node.next_node = temp1
+
+    def __str__(self):
+        """ String representation of linked list """
+        _s = ''
+        temp = self.__head
+        while temp is not None:
+            _s += (str(temp.data) + '\n')
+            temp = temp.next_node
+        return _s[:-1]
