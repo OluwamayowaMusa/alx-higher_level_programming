@@ -56,7 +56,8 @@ class SinglyLinkedList:
         """ Initializes the Head node of a linked list.
 
         """
-        self.__head = None  # Head Node of linked list
+        self.__head = None
+        """ Node: Head Node of linked list """
 
     def sorted_insert(self, value):
         """ Inserts a new node in the linked list """
@@ -69,7 +70,6 @@ class SinglyLinkedList:
                 new_node.next_node = temp
                 self.__head = new_node
                 return
-            # Checks for condition
             while temp.next_node is not None and temp.next_node.data < value:
                 temp = temp.next_node
             temp1 = temp.next_node
