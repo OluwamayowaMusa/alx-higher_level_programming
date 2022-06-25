@@ -1,0 +1,32 @@
+The ``3-say_my_name`` module
+==============================
+Using ``say_my_name`` function
+==============================
+
+First Import the ``say_my_name`` from 3-say_my_name`` module
+>>> say_my_name = __import__("3-say_my_name").say_my_name
+
+Now use it:
+say_my_name takes two input first_name and last_name and prints
+My name is <first_name> <last_name>
+
+Test Cases:
+===========
+>>> say_my_name("Oluwamayowa", "Musa")
+My name is Oluwamayowa Musa
+
+>>> say_my_name("Bob", "Marly")
+My name is Bob Marly
+
+>>> say_my_name("Musa", 3.0)
+Traceback (most recent call last):
+	...
+TypeError: last_name must be a string
+
+>>> say_my_name([12], 90)
+Traceback (most recent call last):
+	...
+TypeError: first_name must be a string
+
+>>> say_my_name("Mayowa")
+My name is Mayowa 
