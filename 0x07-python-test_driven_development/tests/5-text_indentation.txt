@@ -1,0 +1,26 @@
+The ``5-text_indentation`` module
+=======================================
+Using the ``text_indentation`` function
+=======================================
+First, import the ``text_indentation`` from the ``5-text_indentation`` module
+
+>>> text_indentation = __import__("5-text_indentation").text_indentation
+
+Now use it:
+``text_indentation`` takes one input which is a string a prints a new line
+after .,? and :
+
+>>> text_indentation("Musa.")
+Musa.
+<BLANKLINE>
+
+>>> text_indentation(1)
+Traceback (most recent call last):
+	...
+TypeError: text must be a string
+
+>>> text_indentation("Musa: A boy.")
+Musa:
+<BLANKLINE>
+A boy.
+<BLANKLINE>
