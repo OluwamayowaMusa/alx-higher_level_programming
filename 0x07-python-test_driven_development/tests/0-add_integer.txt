@@ -1,0 +1,50 @@
+The ``0-add_integer`` module
+==================================
+Using the ``add_integer`` function
+==================================
+
+This is a test file in reStructedText format. First import
+``add_integer`` from the ``0-add_integer`` module
+
+>>> add_integer = __import__('0-add_integer').add_integer
+
+Now use it:
+
+Numbers (int):
+=============
+``add_integer`` returns the addition of two integers passed
+::
+	>>> add_integer(2, 4)
+	6
+	>>> add_integer(3, 90)
+	93
+	>>> add_integer(7, 6)
+	13
+
+Numbers (float):
+===============
+``add_integer`` returns the addition of floats first casted into integers
+::
+	>>> add_integer(1.0, 8.0)
+	9
+	>>> add_integer(7.8, 6.5)
+	13
+
+Strings:
+=======
+``add_integer`` raises a TypeError with message either a or b must be integers
+::
+	>>> add_integer(1.0, "8.9")
+	Traceback (most recent call last):
+		...
+	TypeError: b must be an integer
+
+	>>> add_integer("temp", 98)
+	Traceback (most recent call last):
+		...
+	TypeError: a must be an integer
+
+	>>> add_integer("1.09", "67")
+	Traceback (most recent call last):
+		...
+	TypeError: a must be an integer
