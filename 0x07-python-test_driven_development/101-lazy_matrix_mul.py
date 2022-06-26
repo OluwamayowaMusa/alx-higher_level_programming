@@ -1,18 +1,20 @@
 #!/usr/bin/python3
-""" Defines a function that multiplies two matrices.
+""" Defines a function that uses `numpy` to multiply matrix.
 
 """
 
+import numpy as np
 
-def matrix_mul(m_a, m_b):
-    """ Multiplies two matrices (list of lists).
+
+def lazy_matrix_mul(m_a, m_b):
+    """ Multiplys two matrices.
 
     Args:
         m_a (list of lists): First Matrix
         m_b (list of lists): Second Matrix
 
     Return:
-        Multiplication of both matrices
+        Multiplication of both martrices
     """
 
     if not isinstance(m_a, list):
@@ -45,17 +47,4 @@ def matrix_mul(m_a, m_b):
             raise TypeError("each row of m_b must be of the same size")
     if len(m_a[0]) != len(m_b):
         raise ValueError("m_a and m_b can't be multiplied")
-
-    result_list = []
-    for i in m_a:
-        temp = []
-        j = 0
-        while j < len(m_b):
-            k, num = 0, 0
-            while k < len(m_b):
-                num += i[k] * m_b[k][j]
-                k += 1
-            j += 1
-            temp.append(num)
-        result_list.append(temp)
-    return result_list
+    return np.matmul(np.array(m_a), np.array(m_b))
