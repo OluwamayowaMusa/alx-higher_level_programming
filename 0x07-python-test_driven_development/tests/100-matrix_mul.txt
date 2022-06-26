@@ -1,0 +1,64 @@
+The ``100-matrix_mul`` module
+==================================
+Using the ``matrix_mul`` function
+==================================
+
+First, you have to import the ``matrix_mul`` function
+from the ``100-matrix_mul`` module
+::
+B
+	>>> matrix_mul = __import__("100-matrix_mul").matrix_mul
+
+Now Use it:
+
+The ``matrix_mul`` function accepts two inputs which must be a list of
+lists of integers or floats and returns the multiplication of both matrices.
+Any other inputs will raise a TypeError(if any element of the list of lists isn't
+integer or float a ValueError will be raised. ``matrix_mul`` also checks if both
+matrices can be multiplied else a ValueError is raised.
+::
+	>>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
+	[[7, 10], [15, 22]]
+
+	>>> matrix_mul([[1, 2]], [[3, 4], [5, 6]])
+	[[13, 16]]
+
+	>>> matrix_mul("list", 1)
+	Traceback (most recent call last):
+		...
+	TypeError: m_a must be a list
+
+	>>> matrix_mul([], 9)
+	Traceback (most recent call last):
+		...
+	TypeError: m_b must be a list
+
+	>>> matrix_mul([1,2], [2, 3])
+	Traceback (most recent call last):
+		...
+	TypeError: m_a must be a list of lists
+
+	>>> matrix_mul([[1,2]], [2, 3])
+	Traceback (most recent call last):
+		...
+	TypeError: m_b must be a list of lists
+
+	>>> matrix_mul([[]], [[]])
+	Traceback (most recent call last):
+		...
+	ValueError: m_a can't be empty
+
+	>>> matrix_mul([[1, 2], ["jek"]], [[1, 2]])
+	Traceback (most recent call last):
+		...
+	TypeError: m_a should contain only integers or floats
+
+	>>> matrix_mul([[1, 2], [1]], [[1]])
+	Traceback (most recent call last):
+		...
+	TypeError: each row of m_a must be of the same size
+
+	>>> matrix_mul([[1, 2, 3], [3, 4, 6]], [[1, 2, 3]])
+	Traceback (most recent call last):
+		...
+	ValueError: m_a and m_b can't be multiplied
