@@ -29,8 +29,8 @@ def lazy_matrix_mul(m_a, m_b):
         raise ValueError("shapes ({:d},{:d}) and ({:d},{:d}) not aligned:"
                          " {:d} (dim {:d}) != {:d} (dim {:d})".format(h_a, w_a,
                                                                       h_b, w_b,
-                                                                      w_a, h_a,
-                                                                      w_b, w_a)
+                                                                      w_a, 1,
+                                                                      h_b, 0)
                          )
 
     for r_a in m_a:
