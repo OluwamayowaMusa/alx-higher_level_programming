@@ -50,7 +50,7 @@ def matrix_mul(m_a, m_b):
     for i in m_a:
         temp = []
         j = 0
-        while j < len(m_b):
+        while j < len(m_b[0]):
             k, num = 0, 0
             while k < len(m_b):
                 num += i[k] * m_b[k][j]
