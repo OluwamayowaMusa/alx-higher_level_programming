@@ -19,6 +19,9 @@ def text_indentation(text):
         if _c in ".?:":
             print(_c, end='')
             print()
+            if text[_length + 1] == ' ':
+                _length +=1
         else:
             print(_c, end='')
         _length += 1
+    print()
