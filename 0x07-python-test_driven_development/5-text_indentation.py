@@ -20,8 +20,8 @@ def text_indentation(text):
             print(_c, end='')
             print()
             print()
-            while text[_length + 1] == ' ':
-                _length +=1
+            while _length + 1 < len(text) and text[_length + 1] == ' ':
+                _length += 1
         else:
             print(_c, end='')
         _length += 1
