@@ -26,8 +26,8 @@ def lazy_matrix_mul(m_a, m_b):
     w_b = 0 if h_b == 0 else len(m_b[0])
 
     if h_a == 0 or w_a == 0 or h_b == 0 or w_b == 0:
-        raise ValueError("shapes ({:d},{:d}) and ({:d}, {:d}) not aligned:"
-                         " {:d} (dim {:d})!= {:d} (dim {:d})".format(h_a, w_a,
+        raise ValueError("shapes ({:d},{:d}) and ({:d},{:d}) not aligned:"
+                         " {:d} (dim {:d}) != {:d} (dim {:d})".format(h_a, w_a,
                                                                       h_a, w_b,
                                                                       w_a, h_a,
                                                                       w_b, w_a)
@@ -46,8 +46,8 @@ def lazy_matrix_mul(m_a, m_b):
             if type(c_b) is not int and type(c_b) is not float:
                 raise TypeError("invalid data type for einsum")
     if len(m_a[0]) != len(m_b):
-        raise ValueError("shapes ({:d},{:d}) and ({:d}, {:d}) not aligned:"
-                         " {:d} (dim {:d})!= {:d} (dim {:d})".format(w_b, h_a,
+        raise ValueError("shapes ({:d},{:d}) and ({:d},{:d}) not aligned:"
+                         " {:d} (dim {:d}) != {:d} (dim {:d})".format(w_b, h_a,
                                                                       w_b, w_b,
                                                                       h_a, h_b,
                                                                       w_b, h_a)
