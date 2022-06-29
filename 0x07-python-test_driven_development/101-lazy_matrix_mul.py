@@ -27,10 +27,10 @@ def lazy_matrix_mul(m_a, m_b):
 
     if h_a == 0 or w_a == 0 or h_b == 0 or w_b == 0:
         raise ValueError("shapes ({:d},{:d}) and ({:d},{:d}) not aligned:"
-                         " {:d} (dim {:d}) != {:d} (dim {:d})".format(h_a, w_a,
-                                                                      h_a, w_b,
-                                                                      w_a, h_a,
-                                                                      w_b, w_a)
+                         " {:d} (dim {:d}) != {:d} (dim {:d})".format(w_b, h_a,
+                                                                      w_b, w_b,
+                                                                      h_a, h_b,
+                                                                      w_b, h_a)
                          )
 
     for r_a in m_a:
