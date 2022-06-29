@@ -19,7 +19,6 @@ def text_indentation(text):
         if _c in ".?:":
             print(_c, end='')
             print()
-            print()
         else:
             print(_c, end='')
         _length += 1
