@@ -41,16 +41,16 @@ def lazy_matrix_mul(m_a, m_b):
                 raise TypeError("invalid data type for einsum")
     for r_b in m_b:
         if len(r_b) != len(m_b[0]):
-            raise ValueError("setting an array element with a sequnece.")
+            raise ValueError("setting an array element with a sequence.")
         for c_b in r_b:
             if type(c_b) is not int and type(c_b) is not float:
                 raise TypeError("invalid data type for einsum")
     if len(m_a[0]) != len(m_b):
         raise ValueError("shapes ({:d},{:d}) and ({:d},{:d}) not aligned:"
-                         " {:d} (dim {:d}) != {:d} (dim {:d})".format(w_b, h_a,
-                                                                      w_b, w_b,
-                                                                      h_a, h_b,
-                                                                      w_b, h_a)
+                         " {:d} (dim {:d}) != {:d} (dim {:d})".format(h_a, w_a,
+                                                                      h_b, w_b,
+                                                                      w_a, 1,
+                                                                      h_b, 0)
                          )
 
     if not isinstance(m_a, list):
