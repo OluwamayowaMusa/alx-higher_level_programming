@@ -20,6 +20,8 @@ Numbers (int):
 	93
 	>>> add_integer(7, 6)
 	13
+	>>> add_integer(1)
+	99
 
 Numbers (float):
 ===============
@@ -48,3 +50,44 @@ Strings:
 	Traceback (most recent call last):
 		...
 	TypeError: a must be an integer
+
+Inifinty:
+=========
+``add_integer`` raises OverflowError 
+::
+	>>> add_integer(float('inf'), 1)
+	Traceback (most recent call last):
+		...
+	OverflowError: cannot convert float infinity to integer
+
+	>>> add_integer(1, float('inf'))
+	Traceback (most recent call last):
+		...
+	OverflowError: cannot convert float infinity to integer
+
+	>>> add_integer(float('-inf'), 1)
+	Traceback (most recent call last):
+		...
+	OverflowError: cannot convert float infinity to integer
+
+	>>> add_integer(1, float('-inf'))
+	Traceback (most recent call last):
+		...
+	OverflowError: cannot convert float infinity to integer
+
+NaN:
+====
+``add_integer`` raises ValueError
+::
+	>>> add_integer(float('NaN'), 1)
+	Traceback (most recent call last):
+		...
+	ValueError: cannot convert float NaN to integer
+
+No args:
+=======
+::
+	>>> add_integer()
+	Traceback (most recent call last):
+		...
+	TypeError: add_integer() missing 1 required positional argument: 'a'
