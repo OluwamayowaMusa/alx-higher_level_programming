@@ -27,39 +27,39 @@ matrices can be multiplied else a ValueError is raised.
 	>>> lazy_matrix_mul("list", 1)
 	Traceback (most recent call last):
 		...
-	TypeError: m_a must be a list
+	ValueError: Scalar operands are not allowd, use '*' instead
 
 	>>> lazy_matrix_mul([], 9)
 	Traceback (most recent call last):
 		...
-	TypeError: m_b must be a list
+	ValueError: Scalar operands are not allowd, use '*' instead
 
 	>>> lazy_matrix_mul([1,2], [2, 3])
 	Traceback (most recent call last):
 		...
-	TypeError: m_a must be a list of lists
+	TypeError: object of type 'int' has no len()
 
 	>>> lazy_matrix_mul([[1,2]], [2, 3])
 	Traceback (most recent call last):
 		...
-	TypeError: m_b must be a list of lists
+	TypeError: object of type 'int' has no len()
 
 	>>> lazy_matrix_mul([[]], [[]])
 	Traceback (most recent call last):
 		...
-	ValueError: m_a can't be empty
+	ValueError: shapes (0,1) and (0, 0) not aligned: 1 (dim 1) != 0 (dim 1)
 
 	>>> lazy_matrix_mul([[1, 2], ["jek"]], [[1, 2]])
 	Traceback (most recent call last):
 		...
-	TypeError: m_a should contain only integers or floats
+	ValueError: setting an array element with a sequence
 
 	>>> lazy_matrix_mul([[1, 2], [1]], [[1]])
 	Traceback (most recent call last):
 		...
-	TypeError: each row of m_a must be of the same size
+	ValueError: setting an array element with a sequence
 
 	>>> lazy_matrix_mul([[1, 2, 3], [3, 4, 6]], [[1, 2, 3]])
 	Traceback (most recent call last):
 		...
-	ValueError: m_a and m_b can't be multiplied
+	ValueError: shapes (3,2) and (3, 3) not aligned: 2 (dim 1) != 3 (dim 2)
