@@ -27,12 +27,12 @@ matrices can be multiplied else a ValueError is raised.
 	>>> lazy_matrix_mul("list", 1)
 	Traceback (most recent call last):
 		...
-	ValueError: Scalar operands are not allowd, use '*' instead
+	ValueError: Scalar operands are not allowed, use '*' instead
 
 	>>> lazy_matrix_mul([], 9)
 	Traceback (most recent call last):
 		...
-	ValueError: Scalar operands are not allowd, use '*' instead
+	ValueError: Scalar operands are not allowed, use '*' instead
 
 	>>> lazy_matrix_mul([1,2], [2, 3])
 	Traceback (most recent call last):
@@ -52,12 +52,12 @@ matrices can be multiplied else a ValueError is raised.
 	>>> lazy_matrix_mul([[1, 2], ["jek"]], [[1, 2]])
 	Traceback (most recent call last):
 		...
-	ValueError: setting an array element with a sequence
+	ValueError: setting an array element with a sequence.
 
 	>>> lazy_matrix_mul([[1, 2], [1]], [[1]])
 	Traceback (most recent call last):
 		...
-	ValueError: setting an array element with a sequence
+	ValueError: setting an array element with a sequence.
 
 	>>> lazy_matrix_mul([[1, 2, 3], [3, 4, 6]], [[1, 2, 3]])
 	Traceback (most recent call last):
