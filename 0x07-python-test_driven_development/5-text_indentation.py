@@ -20,7 +20,6 @@ def text_indentation(text):
             print(_c, end='')
             print()
             print()
-            _length += 1
         else:
             print(_c, end='')
         _length += 1
