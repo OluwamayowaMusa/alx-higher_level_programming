@@ -24,4 +24,3 @@ def text_indentation(text):
         else:
             print(_c, end='')
         _length += 1
-    print()
