@@ -58,6 +58,7 @@ ctrl_1 = 0
 j = 0
 i = 1
 result_list = []
+total_num = 0
 result_list.append(all_list[j][ctrl_1])
 while ctrl_1 < len(all_list):
     while j < len(all_list[ctrl_1]):
@@ -100,7 +101,7 @@ while ctrl_1 < len(all_list):
                 continue
             result_list.append(temp_4)
             if len(result_list) == _num:
-                print(result_list)
+                total_num += 1
             i += 1
             if i == len(all_list):
                 break
@@ -118,3 +119,4 @@ while ctrl_1 < len(all_list):
         i = 1
         result_list = []
         result_list.append(all_list[j][ctrl_1])
+print(total_num)
