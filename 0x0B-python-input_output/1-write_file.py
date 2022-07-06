@@ -10,6 +10,9 @@ def write_file(filename="", text=""):
     Args:
         filename (str): File passed
         text (str): Text to write to file
+
+    Return:
+        number of characters written
     """
 
     if len(filename) != 0:
