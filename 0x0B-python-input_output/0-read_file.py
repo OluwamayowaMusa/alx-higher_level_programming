@@ -14,4 +14,4 @@ def read_file(filename=''):
     if len(filename) != 0:
         with open(filename, 'r', encoding='utf-8') as f:
             read_data = f.read()
-        print(read_data.strip())
+        print(read_data, end='')
