@@ -8,7 +8,11 @@ for line in open(0, 'r', encoding='utf-8'):
     try:
         i += 1
         temp = line.split()
+        if not temp[-1].isdigit():
+            continue
         file_size.append(int(temp[-1]))
+        if not temp[-2].isdigit():
+            continue
         if status_dict.get(int(temp[-2]), 0) == 0:
             status_dict[int(temp[-2])] = 1
         else:
