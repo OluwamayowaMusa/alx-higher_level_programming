@@ -45,4 +45,5 @@ class Student:
             json (dict): Dictionary of attributes
         """
         for attr in self.__dict__:
-            self.__dict__[attr] = json[attr]
+            if attr in json:
+                self.__dict__[attr] = json[attr]
