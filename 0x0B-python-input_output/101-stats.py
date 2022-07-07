@@ -15,8 +15,8 @@ for line in open(0, 'r', encoding='utf-8'):
             status_dict[int(temp[-2])] += 1
         if i % 10 == 0:
             print("File size: {}".format(sum(file_size)))
-            for i in sorted(status_dict):
-                print("{}: {}".format(i, status_dict[i]))
+            for j in sorted(status_dict):
+                print("{}: {}".format(j, status_dict[j]))
     except KeyboardInterrupt:
         break
 
