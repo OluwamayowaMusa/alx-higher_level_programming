@@ -1,6 +1,6 @@
 # 0x0C. Python - Almost a Circle
 
-## Learning Objectuives
+## Learning Objectives
 * **What is unit testing and how to implement it in a large project**
 * **How to serialize and deserialize a Class**
 * **How to write and read a JSON file**
