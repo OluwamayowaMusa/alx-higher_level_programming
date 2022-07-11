@@ -98,3 +98,63 @@ class Base:
             list_obj.append(cls.create(**attr))
 
         return list_obj
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ Save the object attributes in CSV format.
+
+        Args:
+            list_objs (list): List of class instances
+        """
+        obj_csv = []
+        for obj in list_objs:
+            obj_dict = obj.to_dictionary()
+            temp_list = []
+            for key, value in obj_dict.items():
+                if key == 'id':
+                    temp_list.insert(0, str(value))
+                if cls.__name__ == 'Rectangle':
+                    if key == 'width':
+                        temp_list.insert(1, str(value))
+                    elif key == 'height':
+                        temp_list.insert(2, str(value))
+                    elif key == 'x':
+                        temp_list.insert(3, str(value))
+                    elif key == 'y':
+                        temp_list.insert(4, str(value))
+                elif cls.__name__ == 'Square':
+                    if key == 'size':
+                        temp_list.insert(1, str(value))
+                    elif key == 'x':
+                        temp_list.insert(2, str(value))
+                    elif key == 'y':
+                        temp_list.insert(3, str(value))
+            temp_str = ','.join(temp_list) + '\n'
+            obj_csv.append(temp_str)
+        if len(list_objs) != 0:
+            filename = cls.__name__ + ".csv"
+            with open(filename, 'w', encoding='utf-8') as f:
+                f.writelines(obj_csv)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """ Load object attributes """
+        filename = cls.__name__ + ".csv"
+        if not os.path.exists(filename):
+            return []
+        list_objs = []
+        with open(filename, 'r', encoding='utf-8') as f:
+            list_attr = f.readlines()
+        for attrs in list_attr:
+            temp = attrs.split(',')
+            temp_list = []
+            for index, attr in enumerate(temp):
+                if index != len(temp) - 1:
+                    temp_list.append(int(attr))
+                else:
+                    temp_list.append(int(attr[:-1]))
+            obj = cls(1, 1)
+            obj.update(*temp_list)
+            list_objs.append(obj)
+
+        return list_objs
