@@ -34,3 +34,13 @@ class TestSquareClass(unittest.TestCase):
         self.assertEqual(self.s1.id, 10)
         self.s1.update(size=4)
         self.assertEqual(self.s1.size, 4)
+
+    def test_to_dictionary(self):
+        """ Test method to_dictionary """
+        s1_dict = self.s1.to_dictionary()
+        self.assertEqual(type(s1_dict), dict)
+        self.assertDictEqual(s1_dict, {'id': 10, 'size': 5, 'x': 0, 'y': 0})
+
+    def tearDown(self):
+        """ Dispose Object """
+        del self.s1

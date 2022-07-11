@@ -64,3 +64,12 @@ class Square(Rectangle):
                 if key == 'y':
                     self.y = kwargs[key]
         super().__init__(self.size, self.size, self.x, self.y, self.id)
+
+    def to_dictionary(self):
+        """ Dictionary Representation of object """
+        obj_dict = {}
+        obj_dict['id'] = self.id
+        obj_dict['size'] = self.size
+        obj_dict['x'] = self.x
+        obj_dict['y'] = self.y
+        return obj_dict

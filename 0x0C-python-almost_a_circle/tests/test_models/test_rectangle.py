@@ -50,3 +50,8 @@ class TestRectangleClass(unittest.TestCase):
         self.assertEqual(type(r2_dict), dict)
         self.assertDictEqual(r2_dict, {'id': 13, 'x': 0, 'y': 0, 'width': 7,
                              'height': 6})
+
+    def tearDown(self):
+        """ Dispose created object """
+        del self.r1
+        del self.r2
