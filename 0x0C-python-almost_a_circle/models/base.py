@@ -4,6 +4,7 @@
 """
 import json
 import os
+import turtle
 
 
 class Base:
@@ -53,6 +54,40 @@ class Base:
         if json_string is None or len(json_string) == 0:
             return []
         return json.loads(json_string)
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """ Draw the objects.
+
+        Args:
+            list_rectangles (list): List of Object Rectangle
+            list_squares (list): List of Object Square
+        """
+        s = turtle.getscreen()
+        t = turtle.getturtle()
+        for obj_rect in list_rectangles:
+            t.penup()
+            t.goto(obj_rect.x, obj_rect.y)
+            t.pendown()
+            t.color('red', 'black')
+            t.begin_fill()
+            for i in range(2):
+                t.fd(obj_rect.width)
+                t.rt(90)
+                t.fd(obj_rect.height)
+                t.rt(90)
+            t.end_fill()
+
+        for obj_squ in list_squares:
+            t.penup()
+            t.goto(obj_squ.x, obj_squ.y)
+            t.pendown()
+            t.color('blue', 'green')
+            t.begin_fill()
+            t.rt(45)
+            t.circle(obj_squ.size, steps=4)
+            t.lt(45)
+            t.end_fill()
 
     @classmethod
     def save_to_file(cls, list_objs):
