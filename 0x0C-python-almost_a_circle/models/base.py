@@ -118,6 +118,8 @@ class Base:
         Returns:
             Instance of the class
         """
+        if len(dictionary) == 0:
+            return
         dummy = cls(1, 1)
         dummy.update(**dictionary)
         return dummy
