@@ -118,7 +118,7 @@ class Base:
         Returns:
             Instance of the class
         """
-        if len(dictionary) == 0:
+        if dictionary is None or len(dictionary) == 0:
             return None
         dummy = cls(1, 1)
         dummy.update(**dictionary)
