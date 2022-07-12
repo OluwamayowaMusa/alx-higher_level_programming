@@ -97,9 +97,9 @@ class Base:
             list_objs (list): List of objects to write to file.
         """
         filename = cls.__name__ + ".json"
-        if list_objs is None or len(list_objs) == 0:
+        if list_objs is None:
             with open(filename, 'w', encoding='utf-8') as f:
-                f.write([])
+                f.write(cls.to_json_string([]))
             return
         list_dict = []
         for obj in list_objs:
