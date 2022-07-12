@@ -96,11 +96,15 @@ class Base:
         Args:
             list_objs (list): List of objects to write to file.
         """
+        filename = cls.__name__ + ".json"
+        if list_objs is None:
+            with open(filename, 'w', encoding='utf-8') as f:
+                f.write([])
+            return
         list_dict = []
         for obj in list_objs:
             list_dict.append(obj.to_dictionary())
         json_string = cls.to_json_string(list_dict)
-        filename = cls.__name__ + ".json"
         with open(filename, 'w', encoding='utf-8') as f:
             f.write(json_string)
 
