@@ -20,28 +20,22 @@ class Square(Rectangle):
             id (int): Id of object
         """
         super().__init__(size, size, x, y, id)
-        self.size = size
 
     @property
     def size(self):
         """ Gets the size of object.
             Sets the size of object.
         """
-        return self.__size
+        return self.width
 
     @size.setter
     def size(self, value):
-        if type(value) is not int:
-            raise TypeError("width must be an integer")
-        if value < 0:
-            raise ValueError("width must be > 0")
-        self.__size = value
         super().__init__(value, value, self.x, self.y, self.id)
 
     def __str__(self):
         """ String Representation of object """
         return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
-                                                 self.size)
+                                                 self.width)
 
     def update(self, *args, **kwargs):
         """ Update attributes of object """
