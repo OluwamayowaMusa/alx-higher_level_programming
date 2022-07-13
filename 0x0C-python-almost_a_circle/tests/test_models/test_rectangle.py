@@ -17,15 +17,20 @@ class TestRectangleClass(unittest.TestCase):
 
     def test_id(self):
         """ Test id """
-        self.assertEqual(self.r1.id, 8)
+        self.assertEqual(self.r1.id, 9)
         self.assertEqual(self.r2.id, 13)
 
     def test_values(self):
         """ Test for exception """
+        self.assertRaises(TypeError, Rectangle, "1", 2)
         self.assertRaises(TypeError, Rectangle, 10, "2")
         self.assertRaises(ValueError, Rectangle, -1, 2)
+        self.assertRaises(ValueError, Rectangle, 1, -2)
+        self.assertRaises(ValueError, Rectangle, 0, 2)
+        self.assertRaises(ValueError, Rectangle, 1, 0)
         self.assertRaises(TypeError, Rectangle, 10, 2, [])
         self.assertRaises(ValueError, Rectangle, 10, 2, 2, -1)
+        self.assertRaises(TypeError, Rectangle, 1, 2, 3, "4")
 
     def test_area(self):
         """ Test method area """
@@ -34,8 +39,13 @@ class TestRectangleClass(unittest.TestCase):
 
     def test_str(self):
         """ Test string Representation of object """
-        self.assertEqual(str(self.r1), "[Rectangle] (9) 0/0 - 10/2")
+        self.assertEqual(str(self.r1), "[Rectangle] (10) 0/0 - 10/2")
         self.assertEqual(str(self.r2), "[Rectangle] (13) 0/0 - 7/6")
+
+    def test_display(self):
+        """ Test method display """
+        self.assertEqual(self.r1.display(), None)
+        self.assertEqual(self.r2.display(), None)
 
     def test_update(self):
         """ Test update method """
