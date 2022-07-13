@@ -17,7 +17,7 @@ class TestRectangleClass(unittest.TestCase):
 
     def test_id(self):
         """ Test id """
-        self.assertEqual(self.r1.id, 9)
+        self.assertEqual(self.r1.id, 15)
         self.assertEqual(self.r2.id, 13)
 
     def test_values(self):
@@ -39,13 +39,33 @@ class TestRectangleClass(unittest.TestCase):
 
     def test_str(self):
         """ Test string Representation of object """
-        self.assertEqual(str(self.r1), "[Rectangle] (10) 0/0 - 10/2")
+        self.assertEqual(str(self.r1), "[Rectangle] (18) 0/0 - 10/2")
         self.assertEqual(str(self.r2), "[Rectangle] (13) 0/0 - 7/6")
 
     def test_display(self):
         """ Test method display """
         self.assertEqual(self.r1.display(), None)
         self.assertEqual(self.r2.display(), None)
+
+    def test_create(self):
+        """ Test method create """
+        obj = Rectangle.create(**{'id': 89})
+        self.assertEqual(obj.id, 89)
+        self.assertEqual(type(obj).__name__, "Rectangle")
+        obj = Rectangle.create(**{'id': 89, 'width': 1})
+        self.assertEqual(obj.width, 1)
+        obj = Rectangle.create(**{'id': 89, 'width': 1, 'height': 2})
+        self.assertEqual(obj.area(), 2)
+        obj = Rectangle.create(**{'id': 89, 'width': 1, 'height': 2, 'x': 3})
+        self.assertEqual(obj.x, 3)
+        obj = Rectangle.create(**{'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4})
+        self.assertEqual(obj.y, 4)
+
+    def test_save_to_file(self):
+        """ Test method save_to_file """
+        self.assertEqual(Rectangle.save_to_file(None), None)
+        self.assertEqual(Rectangle.save_to_file([]), None)
+        self.assertEqual(Rectangle.save_to_file([Rectangle(1, 2)]), None)
 
     def test_update(self):
         """ Test update method """

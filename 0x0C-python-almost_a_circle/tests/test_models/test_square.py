@@ -12,21 +12,29 @@ class TestSquareClass(unittest.TestCase):
     def setUp(self):
         """ Setup test example """
         self.s1 = Square(5)
+        self.s2 = Square(1, 2, 3, 4)
 
     def test_attributes(self):
         """ Test attributes of object """
         self.assertEqual(self.s1.area(), 25)
         self.assertEqual(self.s1.x, 0)
         self.assertEqual(self.s1.y, 0)
-        self.assertEqual(self.s1.id, 14)
+        self.assertEqual(self.s1.id, 22)
+        self.assertEqual(self.s2.id, 4)
 
     def test_values(self):
         """ Test arguments passed """
         self.assertRaises(TypeError, Square, {})
+        self.assertRaises(ValueError, Square, 0)
         self.assertRaises(ValueError, Square, -1)
         self.assertRaises(ValueError, Square, 5, -2)
         self.assertRaises(TypeError, Square, 5, [])
+        self.assertRaises(TypeError, Square, 1, 2, "3")
         self.assertRaises(ValueError, Square, 5, 1, -7)
+
+    def test_str_(self):
+        """ Test method str """
+        self.assertEqual(str(self.s2), "[Square] (4) 2/3 - 1")
 
     def test_update(self):
         """ Test update method """
@@ -39,7 +47,7 @@ class TestSquareClass(unittest.TestCase):
         """ Test method to_dictionary """
         s1_dict = self.s1.to_dictionary()
         self.assertEqual(type(s1_dict), dict)
-        self.assertDictEqual(s1_dict, {'id': 15, 'size': 5, 'x': 0, 'y': 0})
+        self.assertDictEqual(s1_dict, {'id': 24, 'size': 5, 'x': 0, 'y': 0})
 
     def tearDown(self):
         """ Dispose Object """
