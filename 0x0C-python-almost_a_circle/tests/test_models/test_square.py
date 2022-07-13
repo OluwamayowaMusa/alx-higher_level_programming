@@ -18,7 +18,7 @@ class TestSquareClass(unittest.TestCase):
         self.assertEqual(self.s1.area(), 25)
         self.assertEqual(self.s1.x, 0)
         self.assertEqual(self.s1.y, 0)
-        self.assertEqual(self.s1.id, 9)
+        self.assertEqual(self.s1.id, 13)
 
     def test_values(self):
         """ Test arguments passed """
@@ -39,7 +39,7 @@ class TestSquareClass(unittest.TestCase):
         """ Test method to_dictionary """
         s1_dict = self.s1.to_dictionary()
         self.assertEqual(type(s1_dict), dict)
-        self.assertDictEqual(s1_dict, {'id': 10, 'size': 5, 'x': 0, 'y': 0})
+        self.assertDictEqual(s1_dict, {'id': 14, 'size': 5, 'x': 0, 'y': 0})
 
     def tearDown(self):
         """ Dispose Object """
