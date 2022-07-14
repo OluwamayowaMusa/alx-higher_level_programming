@@ -24,8 +24,6 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(self.b2.id, 12)
         self.assertEqual(self.b3.id, 4)
 
-    def test_to_json_string(self):
-        """ Test method to_json_string """
 
     def test_from_json_string(self):
         """ Test method from_json_string """
