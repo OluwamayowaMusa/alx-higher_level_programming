@@ -19,7 +19,7 @@ class TestSquareClass(unittest.TestCase):
         self.assertEqual(self.s1.area(), 25)
         self.assertEqual(self.s1.x, 0)
         self.assertEqual(self.s1.y, 0)
-        self.assertEqual(self.s1.id, 22)
+        self.assertEqual(self.s1.id, 24)
         self.assertEqual(self.s2.id, 4)
 
     def test_values(self):
@@ -47,7 +47,28 @@ class TestSquareClass(unittest.TestCase):
         """ Test method to_dictionary """
         s1_dict = self.s1.to_dictionary()
         self.assertEqual(type(s1_dict), dict)
-        self.assertDictEqual(s1_dict, {'id': 24, 'size': 5, 'x': 0, 'y': 0})
+        self.assertDictEqual(s1_dict, {'id': 35, 'size': 5, 'x': 0, 'y': 0})
+
+    def test_create(self):
+        """ Test method create """
+        obj = Square.create(**{'id': 89})
+        self.assertEqual(obj.id, 89)
+        obj = Square.create(**{'id': 89, 'size': 1})
+        self.assertEqual(obj.area(), 1)
+        obj = Square.create(**{'id': 89, 'size': 1, 'x': 2})
+        self.assertEqual(obj.x, 2)
+        obj = Square.create(**{'id': 89, 'size' : 1, 'x': 2, 'y': 3})
+        self.assertEqual(obj.y, 3)
+
+    def test_save_to_file(self):
+        """ Test save_to_file method """
+        self.assertEqual(Square.save_to_file(None), None)
+        self.assertEqual(Square.save_to_file([]), None)
+        self.assertEqual(Square.save_to_file([Square(1)]), None)
+
+    def test_load_from_file(self):
+        """ Test load_from_file """
+        self.assertEqual(Square.load_from_file()[0].size, 1)
 
     def tearDown(self):
         """ Dispose Object """

@@ -39,7 +39,7 @@ class TestRectangleClass(unittest.TestCase):
 
     def test_str(self):
         """ Test string Representation of object """
-        self.assertEqual(str(self.r1), "[Rectangle] (18) 0/0 - 10/2")
+        self.assertEqual(str(self.r1), "[Rectangle] (20) 0/0 - 10/2")
         self.assertEqual(str(self.r2), "[Rectangle] (13) 0/0 - 7/6")
 
     def test_display(self):
@@ -65,7 +65,11 @@ class TestRectangleClass(unittest.TestCase):
         """ Test method save_to_file """
         self.assertEqual(Rectangle.save_to_file(None), None)
         self.assertEqual(Rectangle.save_to_file([]), None)
-        self.assertEqual(Rectangle.save_to_file([Rectangle(1, 2)]), None)
+        self.assertEqual(Rectangle.save_to_file([Rectangle(1, 5)]), None)
+
+    def test_load_from_file(self):
+        """ Test method load_from_file """
+        self.assertEqual(Rectangle.load_from_file()[0].width, 1)
 
     def test_update(self):
         """ Test update method """
