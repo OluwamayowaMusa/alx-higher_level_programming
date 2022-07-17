@@ -23,3 +23,22 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(self.b1.id, 1)
         self.assertEqual(self.b2.id, 2)
         self.assertEqual(self.b3.id, 19)
+
+    def test_to_json_string(self):
+        """ Test method to_json_string """
+        self.assertEqual(Base.to_json_string(None), "[]")
+        self.assertEqual(Base.to_json_string([]), "[]")
+        self.assertEqual(Base.to_json_string([{"id": 12}]), '[{"id": 12}]')
+
+    def test_from_json_string(self):
+        """ Test method from_json_string """
+        self.assertListEqual(Base.from_json_string(None), [])
+        self.assertListEqual(Base.from_json_string("[]"), [])
+        self.assertListEqual(Base.from_json_string('[{"id": 89}]'), [{"id": 89}])
+
+    @classmethod
+    def tearDownClass(cls):
+        """ Delete test examples """
+        del cls.b1
+        del cls.b2
+        del cls.b3
