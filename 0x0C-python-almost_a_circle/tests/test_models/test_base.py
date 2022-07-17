@@ -14,7 +14,6 @@ class TestBaseClass(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         """ Test Examples for test methods """
-        print("Setup class")
         cls.b1 = Base()
         cls.b2 = Base()
         cls.b3 = Base(89)
@@ -27,7 +26,6 @@ class TestBaseClass(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
         """ Delete test examples """
-        print("Tear down")
         del cls.b1
         del cls.b2
         del cls.b3
