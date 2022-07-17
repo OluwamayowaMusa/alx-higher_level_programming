@@ -25,7 +25,7 @@ class TestRectangleClass(unittest.TestCase):
         self.assertEqual(self.r2.id, 4)
         self.assertEqual(self.r3.id, 5)
         self.assertEqual(self.r4.id, 5)
-    
+
     def test_values(self):
         """ Test Values passed to Rectangle class """
         self.assertRaises(TypeError, Rectangle, "1", 2)
@@ -38,7 +38,7 @@ class TestRectangleClass(unittest.TestCase):
         self.assertRaises(ValueError, Rectangle, 1, 0)
         self.assertRaises(ValueError, Rectangle, 1, 2, -3)
         self.assertRaises(ValueError, Rectangle, 1, 2, 3, -4)
-        
+
     def test_area(self):
         """ Test the area method of Rectangle object """
         self.assertEqual(self.r1.area(), 2)
