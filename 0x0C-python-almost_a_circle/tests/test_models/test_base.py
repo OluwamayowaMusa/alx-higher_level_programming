@@ -11,12 +11,16 @@ class TestBaseClass(unittest.TestCase):
     """ Test cases for the Base class.
 
     """
+
+    def setUp(self):
+        """ Setup test examples """
+        self.b1 = Base()
+        self.b2 = Base()
+        self.b3 = Base(89)
+
     def test_id(self):
         """ Test id of base Object """
-        b1 = Base()
-        b2 = Base()
-        b3 = Base(89)
-        self.assertEqual(b1.id, 1)
-        self.assertEqual(b2.id, 2)
-        self.assertEqual(b3.id, 89)
+        self.assertEqual(self.b1.id, 1)
+        self.assertEqual(self.b2.id, 2)
+        self.assertEqual(self.b3.id, 89)
 
