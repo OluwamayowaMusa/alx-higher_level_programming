@@ -30,6 +30,10 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual('[]', Base.to_json_string([]))
         self.assertEqual(Base.to_json_string([{"id": 12}]), '[{"id": 12}]')
 
+    def test_to_json_string_empty_list(self):
+        """ Test method to_json_string for empty list """
+        self.assertEqual(Base.to_json_string([]), "[]");
+
     def test_from_json_string(self):
         """ Test method from_json_string """
         self.assertListEqual(Base.from_json_string(None), [])

@@ -19,7 +19,7 @@ class TestSquareClass(unittest.TestCase):
         self.assertEqual(self.s1.area(), 25)
         self.assertEqual(self.s1.x, 0)
         self.assertEqual(self.s1.y, 0)
-        self.assertEqual(self.s1.id, 32)
+        self.assertEqual(self.s1.id, 34)
         self.assertEqual(self.s2.id, 4)
 
     def test_values(self):
@@ -47,7 +47,7 @@ class TestSquareClass(unittest.TestCase):
         """ Test method to_dictionary """
         s1_dict = self.s1.to_dictionary()
         self.assertEqual(type(s1_dict), dict)
-        self.assertDictEqual(s1_dict, {'id': 43, 'size': 5, 'x': 0, 'y': 0})
+        self.assertDictEqual(s1_dict, {'id': 45, 'size': 5, 'x': 0, 'y': 0})
 
     def test_create(self):
         """ Test method create """
