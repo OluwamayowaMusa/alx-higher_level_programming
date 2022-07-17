@@ -17,7 +17,7 @@ class TestRectangleClass(unittest.TestCase):
 
     def test_id(self):
         """ Test id """
-        self.assertEqual(self.r1.id, 15)
+        self.assertEqual(self.r1.id, 14)
         self.assertEqual(self.r2.id, 13)
 
     def test_values(self):
@@ -39,13 +39,8 @@ class TestRectangleClass(unittest.TestCase):
 
     def test_str(self):
         """ Test string Representation of object """
-        self.assertEqual(str(self.r1), "[Rectangle] (20) 0/0 - 10/2")
+        self.assertEqual(str(self.r1), "[Rectangle] (19) 0/0 - 10/2")
         self.assertEqual(str(self.r2), "[Rectangle] (13) 0/0 - 7/6")
-
-    def test_display(self):
-        """ Test method display """
-        self.assertEqual(self.r1.display(), None)
-        self.assertEqual(self.r2.display(), None)
 
     def test_create(self):
         """ Test method create """
