@@ -34,7 +34,7 @@ class TestBaseClass(unittest.TestCase):
         """ Test method from_json_string """
         self.assertListEqual(Base.from_json_string(None), [])
         self.assertListEqual(Base.from_json_string("[]"), [])
-        self.assertListEqual(Base.from_json_string('[{"id": 89}]'), [{"id": 89}])
+        self.assertListEqual(Base.from_json_string('[{"id": 8}]'), [{"id": 8}])
 
     @classmethod
     def tearDownClass(cls):
