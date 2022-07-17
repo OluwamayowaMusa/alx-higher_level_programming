@@ -14,11 +14,13 @@ class TestRectangleClass(unittest.TestCase):
         """ Setup the test example """
         self.r1 = Rectangle(10, 2)
         self.r2 = Rectangle(7, 6, 0, 0, 13)
+        self.r3 = Rectangle(1, 2, 3)
 
     def test_id(self):
         """ Test id """
-        self.assertEqual(self.r1.id, 14)
+        self.assertEqual(self.r1.id, 16)
         self.assertEqual(self.r2.id, 13)
+        self.assertEqual(self.r3.id, 17)
 
     def test_values(self):
         """ Test for exception """
@@ -39,7 +41,7 @@ class TestRectangleClass(unittest.TestCase):
 
     def test_str(self):
         """ Test string Representation of object """
-        self.assertEqual(str(self.r1), "[Rectangle] (19) 0/0 - 10/2")
+        self.assertEqual(str(self.r1), "[Rectangle] (24) 0/0 - 10/2")
         self.assertEqual(str(self.r2), "[Rectangle] (13) 0/0 - 7/6")
 
     def test_create(self):
