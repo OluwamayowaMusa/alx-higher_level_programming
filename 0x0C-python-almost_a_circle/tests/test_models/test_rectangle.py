@@ -134,6 +134,7 @@ class TestRectangleClass(unittest.TestCase):
         self.assertEqual(obj.x, 3)
         obj = Rectangle.create(**{'id': 23, 'width': 4, 'height': 3,
                                   'x': 3, 'y': 5})
+        self.assertEqual(obj.y, 5)
 
     def test_file_methods(self):
         """ Test method save_to_file and load_from_file for Rectangle Object.
