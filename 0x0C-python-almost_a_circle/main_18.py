@@ -36,8 +36,8 @@ if not passing:
     print("Regular tests are not passing")
     exit(1)
 
-file_path_to_update = "models/base.py"
-file_path_updated = "models/tmp_base.py"
+file_path_to_update = "models/rectangle.py"
+file_path_updated = "models/tmp_rectangle.py"
 if not os.path.exists(file_path_to_update):
     print("{} not found".format(file_path_to_update))
     exit(1)
@@ -51,19 +51,18 @@ try:
     # update file
     new_content = """#!/usr/bin/python3
 \"\"\" Random documentation \"\"\"
-from models.tmp_base import Base
+from models.tmp_rectangle import Rectangle
 
 
-class Base(Base):
+class Rectangle(Rectangle):
     \"\"\" Random documentation \"\"\"
 
-    def __init__(self, id=None):
+    def __init__(self, width, height, x=0, y=0, id=None):
         \"\"\" Random documentation \"\"\"
-        if id is None:
-            self.id = 89
-        else:
-            super().__init__(id)
-"""    
+        if id is not None:
+            id = id + 1
+        super().__init__(width, height, x, y, id)
+"""
 
     with open(file_path_to_update, "w") as file:
         file.write(new_content)

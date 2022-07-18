@@ -25,6 +25,7 @@ class TestRectangleClass(unittest.TestCase):
         self.assertEqual(self.r2.height, 8)
         self.assertEqual(self.r3.x, 3)
         self.assertEqual(self.r4.y, 5)
+        self.assertEqual(self.r4.id, 5)
 
     def test_values(self):
         """ Test Values passed to Rectangle class """
