@@ -121,6 +121,19 @@ class TestRectangleClass(unittest.TestCase):
         self.r2.update(**{'id': 75, 'width': 3, 'height': 6, 'x': 5, 'y': 7})
         self.assertEqual(self.r2.y, 7)
 
+    def test_create(self):
+        """ Test method create for Rectangle Object """
+        obj = Rectangle.create(**{'id': 23})
+        self.assertEqual(obj.id, 23)
+        obj = Rectangle.create(**{'id': 23, 'width': 4})
+        self.assertEqual(obj.width, 4)
+        obj = Rectangle.create(**{'id': 23, 'width': 4, 'height': 3})
+        self.assertEqual(obj.height, 3)
+        obj = Rectangle.create(**{'id': 23, 'width': 4, 'height': 3, 'x': 3})
+        self.assertEqual(obj.x, 3)
+        obj = Rectangle.create(**{'id': 23, 'width': 4, 'height': 3,
+                                  'x': 3, 'y': 5})
+
     @classmethod
     def tearDownClass(cls):
         """ Deletes test Examples """
