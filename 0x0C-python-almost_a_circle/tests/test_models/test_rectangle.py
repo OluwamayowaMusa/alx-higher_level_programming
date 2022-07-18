@@ -17,14 +17,14 @@ class TestRectangleClass(unittest.TestCase):
         cls.r1 = Rectangle(1, 2)
         cls.r2 = Rectangle(1, 8, 3)
         cls.r3 = Rectangle(5, 6, 3, 4)
-        cls.r4 = Rectangle(3, 2, 3, 4, 5)
+        cls.r4 = Rectangle(3, 2, 3, 5, 5)
 
-    def test_id(self):
-        """ Test id of Rectangle Objects """
-        self.assertEqual(self.r1.id, 3)
-        self.assertEqual(self.r2.id, 4)
-        self.assertEqual(self.r3.id, 5)
-        self.assertEqual(self.r4.id, 5)
+    def test_rectangle(self):
+        """ Test attributes of Rectangle Objects """
+        self.assertEqual(self.r1.width, 1)
+        self.assertEqual(self.r2.height, 8)
+        self.assertEqual(self.r3.x, 3)
+        self.assertEqual(self.r4.y, 5)
 
     def test_values(self):
         """ Test Values passed to Rectangle class """
