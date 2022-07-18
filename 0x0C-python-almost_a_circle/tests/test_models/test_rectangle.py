@@ -4,6 +4,7 @@
 """
 import unittest
 import sys
+import os
 from models.rectangle import Rectangle
 
 
@@ -133,6 +134,25 @@ class TestRectangleClass(unittest.TestCase):
         self.assertEqual(obj.x, 3)
         obj = Rectangle.create(**{'id': 23, 'width': 4, 'height': 3,
                                   'x': 3, 'y': 5})
+
+    def test_file_methods(self):
+        """ Test method save_to_file and load_from_file for Rectangle Object.
+        """
+        if not os.path.exists("Rectangle.json"):
+            list_obj = Rectangle.load_from_file()
+            self.assertListEqual(list_obj, [])
+        Rectangle.save_to_file(None)
+        list_obj = Rectangle.load_from_file()
+        self.assertListEqual(list_obj, [])
+        Rectangle.save_to_file([Rectangle(1, 2)])
+        list_obj = Rectangle.load_from_file()
+        self.assertEqual(list_obj[0].width, 1)
+
+    def test_save_to_file(self):
+        """ Test method save_to_file for empty list """
+        Rectangle.save_to_file([])
+        list_obj = Rectangle.load_from_file()
+        self.assertEqual(len(list_obj), 0)
 
     @classmethod
     def tearDownClass(cls):

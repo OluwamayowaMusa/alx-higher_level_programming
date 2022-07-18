@@ -57,12 +57,11 @@ from models.tmp_rectangle import Rectangle
 class Rectangle(Rectangle):
     \"\"\" Random documentation \"\"\"
 
-    def update(self, *args, **kwargs):
+    @classmethod
+    def save_to_file(cls, list_objs):
         \"\"\" Random documentation \"\"\"
-        if args is None or len(args) == 0:
-            if kwargs.get('y') is not None:
-                kwargs['y'] = kwargs.get('y') * 2
-        super().update(args, kwargs)
+        if list_objs is None or len(list_objs) > 0:
+            super().save_to_file(list_objs)
 """
 
     with open(file_path_to_update, "w") as file:
