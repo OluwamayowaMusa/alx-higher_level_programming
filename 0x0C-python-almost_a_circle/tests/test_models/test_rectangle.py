@@ -141,18 +141,15 @@ class TestRectangleClass(unittest.TestCase):
         if not os.path.exists("Rectangle.json"):
             list_obj = Rectangle.load_from_file()
             self.assertListEqual(list_obj, [])
-        Rectangle.save_to_file(None)
-        list_obj = Rectangle.load_from_file()
-        self.assertListEqual(list_obj, [])
         Rectangle.save_to_file([Rectangle(1, 2)])
         list_obj = Rectangle.load_from_file()
         self.assertEqual(list_obj[0].width, 1)
-
-    def test_save_to_file(self):
-        """ Test method save_to_file for empty list """
-        Rectangle.save_to_file([])
+        Rectangle.save_to_file(None)
         list_obj = Rectangle.load_from_file()
         self.assertEqual(len(list_obj), 0)
+        Rectangle.save_to_file([])
+        list_obj = Rectangle.load_from_file()
+        self.assertListEqual(list_obj, [])
 
     @classmethod
     def tearDownClass(cls):
