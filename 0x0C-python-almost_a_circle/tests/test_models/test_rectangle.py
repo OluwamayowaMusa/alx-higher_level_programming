@@ -121,6 +121,32 @@ class TestRectangleClass(unittest.TestCase):
         self.r2.update(**{'id': 75, 'width': 3, 'height': 6, 'x': 5, 'y': 7})
         self.assertEqual(self.r2.y, 7)
 
+    def test_create(self):
+        """ Test method create for Rectangle Object """
+        obj = Rectangle.create(**{'id': 23})
+        self.assertEqual(obj.id, 23)
+        obj = Rectangle.create(**{'id': 23, 'width': 4})
+        self.assertEqual(obj.width, 4)
+        obj = Rectangle.create(**{'id': 23, 'width': 4, 'height': 3})
+        self.assertEqual(obj.height, 3)
+        obj = Rectangle.create(**{'id': 23, 'width': 4, 'height': 3, 'x': 3})
+        self.assertEqual(obj.x, 3)
+        obj = Rectangle.create(**{'id': 23, 'width': 4, 'height': 3,
+                                  'x': 3, 'y': 5})
+        self.assertEqual(obj.y, 5)
+
+    def test_file_methods(self):
+        """ Test method save_to_file and load_from_file for Rectangle Object.
+        """
+        list_obj = Rectangle.load_from_file()
+        self.assertListEqual(list_obj, [])
+        Rectangle.save_to_file(None)
+        list_obj = Rectangle.load_from_file()
+        self.assertListEqual(list_obj, [])
+        Rectangle.save_to_file([Rectangle(1, 2)])
+        list_obj = Rectangle.load_from_file()
+        self.assertEqual(list_obj[0].width, 1)
+
     @classmethod
     def tearDownClass(cls):
         """ Deletes test Examples """
