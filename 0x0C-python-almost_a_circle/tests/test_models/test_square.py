@@ -3,6 +3,7 @@
 
 """
 import unittest
+import os
 from models.square import Square
 
 
@@ -44,7 +45,7 @@ class TestSquareClass(unittest.TestCase):
     def test_to_dictionary(self):
         """ Test method to_dictionary of Square object """
         self.assertDictEqual(self.s1.to_dictionary(),
-                            {'id': 13, 'x': 0, 'y': 0, 'size': 1})
+                             {'id': 13, 'x': 0, 'y': 0, 'size': 1})
 
     def test_update(self):
         """ Test method update of Square Object """
@@ -77,6 +78,21 @@ class TestSquareClass(unittest.TestCase):
         self.assertEqual(obj.x, 3)
         obj = Square.create(**{'id': 23, 'size': 4, 'x': 3, 'y': 3})
         self.assertEqual(obj.y, 3)
+
+    def test_file_methods(self):
+        """ Test save_to_file and load_from_file for Square Object """
+        if not os.path.exists("Square.json"):
+            list_obj = Square.load_from_file()
+            self.assertListEqual(list_obj, [])
+        Square.save_to_file([Square(1)])
+        list_obj = Square.load_from_file()
+        self.assertEqual(list_obj[0].size, 1)
+        Square.save_to_file(None)
+        list_obj = Square.load_from_file()
+        self.assertListEqual(list_obj, [])
+        Square.save_to_file([])
+        list_obj = Square.load_from_file()
+        self.assertEqual(len(list_obj), 0)
 
     @classmethod
     def tearDownClass(cls):
