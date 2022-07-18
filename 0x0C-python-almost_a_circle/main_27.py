@@ -57,11 +57,11 @@ from models.tmp_rectangle import Rectangle
 class Rectangle(Rectangle):
     \"\"\" Random documentation \"\"\"
 
-    def __init__(self, width, height, x=0, y=0, id=None):
+    def display(self):
         \"\"\" Random documentation \"\"\"
-        if id is not None:
-            id = id + 1
-        super().__init__(width, height, x, y, id)
+        if self.x == 0 and self.y == 0:
+            self.x = 1
+        super().display()
 """
 
     with open(file_path_to_update, "w") as file:
