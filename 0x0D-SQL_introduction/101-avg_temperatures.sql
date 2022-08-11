@@ -1,0 +1,5 @@
+-- Import a table to a database and use it
+SELECT city, AVG(value) AS avg_temp
+ FROM temperatures
+ GROUP BY city
+ ORDER BY avg_temp DESC;
