@@ -10,4 +10,5 @@ SELECT tv_genres.name
    ON tv_genres.id = tv_show_genres.genre_id 
    WHERE tv_shows.title = "Dexter") AS table_1 
  USING (name)
- WHERE table_1.name is NULL;
+ WHERE table_1.name is NULL
+ ORDER BY tv_genres.name ASC;
