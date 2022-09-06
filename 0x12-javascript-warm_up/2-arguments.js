@@ -5,7 +5,6 @@ if (argv[2] && argv[3]) {
   console.log('Arguments found');
 } else if (argv[2]) {
   console.log('Argument found');
-}
-else {
+} else {
   console.log('No argument');
 }
