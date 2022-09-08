@@ -5,7 +5,8 @@ if (!process.argv[2] || !process.argv[3]) {
 } else {
   const arr = [];
   for (let i = 2; i < process.argv.length; i++) {
-    arr.push(process.argv[i]);
+    arr.push(Number(process.argv[i]));
   }
-  console.log(arr.sort()[arr.length - 2]);
+  arr.sort((a, b) => b - a);
+  console.log(arr[1]);
 }
