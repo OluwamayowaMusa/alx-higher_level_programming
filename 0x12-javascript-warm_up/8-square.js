@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
 if (!Number(process.argv[2])) {
-  console.log('Missing Size');
+  console.log('Missing size');
 } else {
   let str = '';
   const size = Number(process.argv[2]);
