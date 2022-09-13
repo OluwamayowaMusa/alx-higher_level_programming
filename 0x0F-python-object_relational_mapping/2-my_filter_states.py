@@ -13,7 +13,8 @@ def filter_user():
                          port=3306)
     cur = db.cursor()
     cur.execute('SELECT * FROM states WHERE name = \'{}\''.format(sys.argv[4]))
-    print(cur.fetchone())
+    for row in cur.fetchall():
+        print(row)
 
 
 if __name__ == "__main__":
