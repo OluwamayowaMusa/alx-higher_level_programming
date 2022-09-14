@@ -16,20 +16,13 @@ def relationship_property():
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    data = session.query(City).join(State).order_by(City.state_id).all()
+    data = session.query(State).join(City).order_by(State.id).all()
     obj_dict = {}
 
-    for obj in data:
-        if obj.state not in obj_dict:
-            obj_dict[obj.state] = []
-            obj_dict[obj.state].append(obj)
-        else:
-            obj_dict[obj.state].append(obj)
-
-    for key in obj_dict:
-        print(f"{key.id}: {key.name}")
-        for obj in obj_dict[key]:
-            print(f"    {obj.id}: {obj.name}")
+    for state in data:
+        print(f"{state.id}: {state.name}")
+        for city in state.cities:
+            print(f"    {city.id}: {city.name}")
 
 
 if __name__ == "__main__":
