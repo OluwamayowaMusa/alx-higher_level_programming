@@ -16,10 +16,7 @@ def relationship_property():
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    data = session.query(State).join(City).order_by(State.id).all()
-    obj_dict = {}
-
-    for state in data:
+    for state in session.query(State).join(City).order_by(State.id, City.id):
         print(f"{state.id}: {state.name}")
         for city in state.cities:
             print(f"    {city.id}: {city.name}")
