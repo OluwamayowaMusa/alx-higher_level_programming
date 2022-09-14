@@ -17,9 +17,9 @@ def relationship_table():
     Session = sessionmaker(bind=engine)
     session = Session()
     state_1 = State(name='California')
-    city_1 = City(name='San Franciso', state_id=1)
-    session.add(city_1)
     session.add(state_1)
+    session.commit()
+    state_1.cities.append(City(name='San Fransico'))
     session.commit()
 
 
