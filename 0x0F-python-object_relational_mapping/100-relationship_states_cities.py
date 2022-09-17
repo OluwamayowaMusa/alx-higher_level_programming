@@ -19,7 +19,7 @@ def relationship_table():
     state_1 = State(name='California')
     session.add(state_1)
     session.commit()
-    state_1.cities.append(City(name='San Fransico'))
+    state_1.cities.append(City(name='San Francisco'))
     session.commit()
 
 
