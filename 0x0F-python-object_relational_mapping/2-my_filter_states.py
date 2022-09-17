@@ -12,9 +12,9 @@ def filter_user():
                          passwd=sys.argv[2], db=sys.argv[3],
                          port=3306)
     cur = db.cursor()
-    user_input = sys.argv[4].split()[0]
+    user_input = sys.argv[4]
     cur.execute('SELECT * FROM states '
-                'WHERE name = \'{}\' '
+                'WHERE name = BINARY \'{}\' '
                 'ORDER BY id ASC'.format(user_input))
     for row in cur.fetchall():
         print(row)
