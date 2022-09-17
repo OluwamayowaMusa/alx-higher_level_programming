@@ -19,7 +19,7 @@ def delete_row():
     for state in data:
         if state.name.__contains__('a'):
             session.delete(state)
-            session.commit()
+    session.commit()
 
 
 if __name__ == "__main__":
