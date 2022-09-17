@@ -17,7 +17,7 @@ def delete_row():
     session = Session()
     data = session.query(State).all()
     for state in data:
-        if 'a' in state.name:
+        if state.name.__contains__('a'):
             session.delete(state)
             session.commit()
 
