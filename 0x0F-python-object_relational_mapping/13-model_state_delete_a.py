@@ -15,10 +15,8 @@ def delete_row():
                                      sys.argv[3]))
     Session = sessionmaker(bind=engine)
     session = Session()
-    data = session.query(State).all()
-    for state in data:
-        if state.name.__contains__('a'):
-            session.delete(state)
+    for state in session.query(State).filter(State.name.like('%a%')):
+        session.delete(state)
     session.commit()
 
 
