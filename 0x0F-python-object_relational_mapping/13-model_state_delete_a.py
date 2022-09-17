@@ -18,7 +18,7 @@ def delete_row():
     for state in session.query(State):
         if 'a' in state.name:
             session.delete(state)
-    session.commit()
+            session.commit()
 
 
 if __name__ == "__main__":
