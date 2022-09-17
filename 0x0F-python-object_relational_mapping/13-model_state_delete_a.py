@@ -15,7 +15,8 @@ def delete_row():
                                      sys.argv[3]))
     Session = sessionmaker(bind=engine)
     session = Session()
-    for state in session.query(State):
+    data = session.query(State).all()
+    for state in data:
         if 'a' in state.name:
             session.delete(state)
             session.commit()
