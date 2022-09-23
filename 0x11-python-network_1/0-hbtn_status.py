@@ -17,7 +17,7 @@ def status(url=None):
             body = response.read()
             print(f"    - type: {type(body)}")
             print(f"    - content: {body}")
-            print(f"    - utf content: {body.decode()}")
+            print(f"    - utf8 content: {body.decode()}")
 
 
 if __name__ == "__main__":
