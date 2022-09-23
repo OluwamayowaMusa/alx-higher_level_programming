@@ -25,4 +25,3 @@ def error(url=None):
 
 if __name__ == "__main__":
     error(url=sys.argv[1])
-
