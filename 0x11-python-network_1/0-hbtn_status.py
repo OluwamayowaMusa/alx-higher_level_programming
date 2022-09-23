@@ -15,9 +15,9 @@ def status(url=None):
         with urlopen(url) as response:
             print("Body response:")
             body = response.read()
-            print(f"    - type: {type(body)}")
-            print(f"    - content: {body}")
-            print(f"    - utf8 content: {body.decode()}")
+            print(f"\t- type: {type(body)}")
+            print(f"\t- content: {body}")
+            print(f"\t- utf8 content: {body.decode()}")
 
 
 if __name__ == "__main__":
