@@ -17,7 +17,7 @@ def error(url=None):
     if url:
         try:
             response = requests.get(url)
-            response.rasie_get_status()
+            response.raise_get_status()
             print(response.text)
         except HTTPError as e:
             print("Error code: {}".format(e.response.status_code))
