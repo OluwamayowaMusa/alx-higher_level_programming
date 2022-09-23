@@ -13,11 +13,14 @@ def json_api(url=None, data=None):
 
     if url:
         response = requests.post(url, data={'q': data})
-        user_dict = response.json()
-        if user_dict:
-            print(f"[{user_dict['id']}] {user_dict['name']}")
+        if response:
+            user_dict = response.json()
+            if user_dict:
+                print(f"[{user_dict['id']}] {user_dict['name']}")
+            else:
+                print("No result")
         else:
-            print("No result")
+            print("Not a valid JSON")
 
 
 if __name__ == "__main__":
