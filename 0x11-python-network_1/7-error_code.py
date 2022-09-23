@@ -17,9 +17,10 @@ def error(url=None):
     if url:
         try:
             response = requests.get(url)
+            response.rasie_get_status()
             print(response.text)
         except HTTPError as e:
-            print("Error code: {}".format(e.status_code))
+            print("Error code: {}".format(e.response.status_code))
 
 
 if __name__ == "__main__":
