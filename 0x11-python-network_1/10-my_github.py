@@ -17,7 +17,7 @@ def github_api(url=None, user=None, passwd=None):
 
     if url and user and passwd:
         response = requests.get(url, auth=(user, passwd))
-        print(response.json()["id"])
+        print(response.json().get("id"))
 
 
 if __name__ == "__main__":
