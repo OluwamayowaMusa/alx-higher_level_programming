@@ -18,7 +18,8 @@ def github_commit(url=None):
         data = response.json()
         result = []
         for user in data:
-            result.append((user["sha"], user["commit"]["author"]["name"], user["commit"]["author"]["date"]))
+            result.append((user["sha"], user["commit"]["author"]["name"],
+                           user["commit"]["author"]["date"]))
         data = sorted(result, key=lambda item: item[2], reverse=True)
         for user in data[:10]:
             print(f"{user[0]}: {user[1]}")
