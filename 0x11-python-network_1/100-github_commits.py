@@ -28,6 +28,6 @@ def github_commit(url=None, user=None, passwd=None):
 
 if __name__ == "__main__":
     github_commit(url="https://api.github.com/repos/"
-                  "{}/{}/commits".format(sys.argv[1], sys.argv[2]),
+                  "{}/{}/commits".format(sys.argv[2], sys.argv[1]),
                   user="OluwamayowaMusa",
-                  passwd="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")
+                  passwd="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")
