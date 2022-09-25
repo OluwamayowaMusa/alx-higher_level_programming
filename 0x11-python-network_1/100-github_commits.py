@@ -6,17 +6,15 @@ import sys
 import requests
 
 
-def github_commit(url=None, user=None, passwd=None):
+def github_commit(url=None):
     """ Using the Github api
 
     Args:
         url (str): URL passsed
-        user (str): UserName of User
-        passwd (str): Password of user
     """
 
-    if url and user and passwd:
-        response = requests.get(url, auth=(user, passwd))
+    if url:
+        response = requests.get(url)
         data = response.json()
         result = []
         for user in data:
@@ -28,6 +26,4 @@ def github_commit(url=None, user=None, passwd=None):
 
 if __name__ == "__main__":
     github_commit(url="https://api.github.com/repos/"
-                  "{}/{}/commits".format(sys.argv[2], sys.argv[1]),
-                  user="OluwamayowaMusa",
-                  passwd="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")
+                  "{}/{}/commits".format(sys.argv[2], sys.argv[1]))
