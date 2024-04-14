@@ -1,10 +1,9 @@
 #!/usr/bin/node
 
-const commandLineArg = process.argv;
-if (commandLineArg.length === 2) {
-  console.log('No argument');
-} else if (commandLineArg.length === 3) {
+if (process.argv[2] && process.argv[3]) {
+  console.log('Arguments found');
+} else if (process.argv[2]) {
   console.log('Argument found');
 } else {
-  console.log('Arguments found');
+  console.log('No argument');
 }
