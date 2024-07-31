@@ -1,18 +1,26 @@
 #!/usr/bin/node
-const request = require('request');
 
+const request = require('request');
 const url = process.argv[2];
 
-request(url, (_error, _response, body) => {
-  const totalTodos = JSON.parse(body);
-  const completedTodo = {};
-  for (const todo of totalTodos) {
-    if (!(todo.userId in completedTodo)) {
-      completedTodo[todo.userId] = 0;
+request(url, function (err, response, body) {
+  if (err) {
+    console.log(err);
+  } else if (response.statusCode === 200) {
+    const completed = {};
+    const tasks = JSON.parse(body);
+    for (const i in tasks) {
+      const task = tasks[i];
+      if (task.completed === true) {
+        if (completed[task.userId] === undefined) {
+          completed[task.userId] = 1;
+        } else {
+          completed[task.userId]++;
+        }
+      }
     }
-    if (todo.completed === true) {
-      completedTodo[todo.userId] += 1;
-    }
+    console.log(completed);
+  } else {
+    console.log('An error occured. Status code: ' + response.statusCode);
   }
-  console.log(completedTodo);
 });
