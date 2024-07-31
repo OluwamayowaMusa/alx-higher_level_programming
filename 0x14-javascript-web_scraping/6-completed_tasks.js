@@ -12,7 +12,7 @@ request(url, (error, _response, body) => {
   const completedTodo = {};
   for (const todo of totalTodos) {
     if (todo.completed === true) {
-      if (completedTodo[todo.userId] === undefined) {
+      if (!(todo.userId in completedTodo)) {
         completedTodo[todo.userId] = 1;
       } else {
         completedTodo[todo.userId] += 1;
