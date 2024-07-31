@@ -11,7 +11,7 @@ request(url, (error, _response, body) => {
   const totalTodos = JSON.parse(body);
   const completedTodo = {};
   for (const todo of totalTodos) {
-    if (todo.userId in completedTodo) {
+    if (todo.completed === true) {
       if (!(todo.userId in completedTodo)) {
         completedTodo[todo.userId] = 1;
       } else {
